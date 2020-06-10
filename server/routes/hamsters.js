@@ -8,7 +8,7 @@ const router = new Router();
 const hamstersRef = db.collection("hamsters"); // DRY code
 
 // GET random hamster
-router.get("/api/random", async (req, res) => {
+router.get("/random", async (req, res) => {
     try {
         // Random number (size of snapshot)
         const snapShot = await hamstersRef.get();
@@ -27,7 +27,7 @@ router.get("/api/random", async (req, res) => {
 });
 
 // GET all hamsters
-router.get("/api/", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         // Empty array
         const hamstersArray = [];
@@ -43,7 +43,7 @@ router.get("/api/", async (req, res) => {
 });
 
 // GET hamster with specified ID
-router.get("/api/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         // Finds hamster where ID == request parameter
         const snapShot = await hamstersRef
@@ -58,7 +58,7 @@ router.get("/api/:id", async (req, res) => {
 });
 
 // PUT stats to hamster with specified ID
-router.put("/api/:id/result", async (req, res) => {
+router.put("/:id/result", async (req, res) => {
     try {
         // Finds hamster where ID == request parameter
         const snapShot = await hamstersRef

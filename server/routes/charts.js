@@ -6,7 +6,7 @@ const router = new Router();
 const hamstersRef = db.collection("hamsters"); // DRY code
 
 // GET five hamsters by wins
-router.get("/api/top", async (req, res) => {
+router.get("/top", async (req, res) => {
     try {
         const topFiveHamstersArray = [];
 
@@ -25,7 +25,7 @@ router.get("/api/top", async (req, res) => {
 });
 
 // GET five hamsters by defeats
-router.get("/api/bottom", async (req, res) => {
+router.get("/bottom", async (req, res) => {
     try {
         const bottomFiveHamstersArray = [];
 

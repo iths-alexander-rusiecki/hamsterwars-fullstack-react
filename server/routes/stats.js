@@ -6,7 +6,7 @@ const router = new Router();
 const hamstersRef = db.collection("hamsters"); // DRY code
 
 // GET total amount of games
-router.get("/api/total", async (req, res) => {
+router.get("/total", async (req, res) => {
     try {
         let totalGames = 0;
         const snapShot = await hamstersRef.get();

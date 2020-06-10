@@ -2,7 +2,7 @@ const express = require("express");
 const helmet = require("helmet"); // Easy way to secure, not bullet proof
 const doesCollectionExist = require("./doesCollectionExist");
 
-const serverPort = process.env.PORT || 1234;
+const serverPort = process.env.PORT || 3001;
 
 const app = express();
 
@@ -14,19 +14,19 @@ doesCollectionExist("hamsters");
 doesCollectionExist("games");
 
 const assetsRoute = require("./routes/assets");
-app.use("/assets", assetsRoute);
+app.use("/api/assets", assetsRoute);
 
 const chartsRoute = require("./routes/charts");
-app.use("/charts", chartsRoute);
+app.use("/api/charts", chartsRoute);
 
 const gamesRoute = require("./routes/games");
-app.use("/games", gamesRoute);
+app.use("/api/games", gamesRoute);
 
 const hamstersRoute = require("./routes/hamsters");
-app.use("/hamsters", hamstersRoute);
+app.use("/api/hamsters", hamstersRoute);
 
 const statsRoute = require("./routes/stats");
-app.use("/stats", statsRoute);
+app.use("/api/stats", statsRoute);
 
 app.listen(serverPort, () =>
     console.log(`Server up and running on port ${serverPort}`)

@@ -6,7 +6,7 @@ const router = new Router();
 const gamesRef = db.collection("games"); // DRY code
 const hamstersRef = db.collection("hamsters"); // DRY code
 
-router.post("/api/", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const snapShot = await gamesRef.get();
         snapShot.forEach(doc => {
@@ -51,7 +51,7 @@ router.post("/api/", async (req, res) => {
 });
 
 // GET all played games
-router.get("/api/", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const totalGamesPlayedArray = [];
 

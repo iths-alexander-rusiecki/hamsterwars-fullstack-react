@@ -5,7 +5,7 @@ const fs = require("fs");
 const router = new Router();
 
 // GET hamster picture
-router.get("/api/:picUrl", (req, res) => {
+router.get("/:picUrl", (req, res) => {
     try {
         const picUrl = req.params.picUrl;
 
