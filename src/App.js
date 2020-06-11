@@ -8,6 +8,7 @@ import {
     Redirect,
 } from "react-router-dom";
 import HamsterWarsStartPage from "./components/HamsterWarsStartPage";
+import Battle from "./components/Battle";
 
 const App = () => {
     return (
@@ -32,6 +33,9 @@ const App = () => {
                     <Switch>
                         <Route exact path="/">
                             <HamsterWarsStartPage />
+                        </Route>
+                        <Route path="/battle">
+                            <Battle />
                         </Route>
                     </Switch>
                 </main>
