@@ -36,7 +36,8 @@ router.get("/", async (req, res) => {
             // Push every hamster to array
             hamstersArray.push(doc.data());
         });
-        res.send({ allHamsters: hamstersArray });
+        res.send(hamstersArray);
+        // res.send({ allHamsters: hamstersArray });
     } catch (err) {
         console.error(err);
     }

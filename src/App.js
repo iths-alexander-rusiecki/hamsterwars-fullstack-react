@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import {
     BrowserRouter as Router,
@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import HamsterWarsStartPage from "./components/HamsterWarsStartPage";
 import Battle from "./components/Battle";
+import GetAllHamsters from "./components/GetAllHamsters";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                             Start
                         </NavLink>
                         <NavLink to="/battle">Battle</NavLink>
+                        <NavLink to="/fetch">fetch</NavLink>
                         <NavLink to="/battle/:id1/:id2">
                             Specific match up
                         </NavLink>
@@ -36,6 +38,9 @@ const App = () => {
                         </Route>
                         <Route path="/battle">
                             <Battle />
+                        </Route>
+                        <Route path="/fetch">
+                            <GetAllHamsters />
                         </Route>
                     </Switch>
                 </main>
