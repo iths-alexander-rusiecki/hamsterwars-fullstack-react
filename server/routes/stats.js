@@ -15,7 +15,7 @@ router.get("/total", async (req, res) => {
         snapShot.forEach(doc => {
             totalGames += doc.data().games;
         });
-        res.send({ totalGamesPlayed: totalGames });
+        res.send([totalGames]);
     } catch (err) {
         console.error(err);
     }

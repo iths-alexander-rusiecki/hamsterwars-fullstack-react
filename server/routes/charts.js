@@ -18,7 +18,7 @@ router.get("/top", async (req, res) => {
         snapShot.forEach(doc => {
             topFiveHamstersArray.push(doc.data());
         });
-        res.send({ topFiveHamsters: topFiveHamstersArray });
+        res.send(topFiveHamstersArray);
     } catch (err) {
         console.error(err);
     }
@@ -37,7 +37,7 @@ router.get("/bottom", async (req, res) => {
         snapShot.forEach(doc => {
             bottomFiveHamstersArray.push(doc.data());
         });
-        res.send({ bottomFiveHamsters: bottomFiveHamstersArray });
+        res.send(bottomFiveHamstersArray);
     } catch (err) {
         console.error(err);
     }

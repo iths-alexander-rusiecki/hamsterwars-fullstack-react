@@ -8,15 +8,18 @@ import {
     Redirect,
 } from "react-router-dom";
 import HamsterWarsStartPage from "./components/HamsterWarsStartPage";
-import Battle from "./components/Battle";
 import GetAllHamsters from "./components/GetAllHamsters";
+import TopFiveHamsters from "./components/TopFiveHamsters";
+import BottomFiveHamsters from "./components/BottomFiveHamsters";
+import TotalAmountOfGames from "./components/TotalAmountOfGames";
+import DisplayRandomHamster from "./components/DisplayRandomHamster";
 
 const App = () => {
     return (
         <Router>
             <div className="App">
                 <header className="App-header">
-                    <h1>My header is nice</h1>
+                    <h1>HAMSTER WARS</h1>
                     <nav>
                         <NavLink exact to="/">
                             Start
@@ -37,10 +40,15 @@ const App = () => {
                             <HamsterWarsStartPage />
                         </Route>
                         <Route path="/battle">
-                            <Battle />
+                            <DisplayRandomHamster />
                         </Route>
                         <Route path="/fetch">
                             <GetAllHamsters />
+                        </Route>
+                        <Route path="/stats">
+                            <TopFiveHamsters />
+                            <BottomFiveHamsters />
+                            <TotalAmountOfGames />
                         </Route>
                     </Switch>
                 </main>

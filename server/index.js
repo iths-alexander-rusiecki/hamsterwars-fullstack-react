@@ -17,7 +17,7 @@ doesCollectionExist("hamsters");
 doesCollectionExist("games");
 
 const assetsRoute = require("./routes/assets");
-app.use("/api/assets", assetsRoute);
+app.use("/assets", assetsRoute);
 
 const chartsRoute = require("./routes/charts");
 app.use("/api/charts", chartsRoute);
