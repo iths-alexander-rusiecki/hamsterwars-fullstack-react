@@ -1,10 +1,21 @@
+.App {
+    height: 100vh;
+    background-image: linear-gradient(
+        to top,
+        #bae21a,
+        #00db7c,
+        #00c6d1,
+        #00a6ff,
+        #127aeb
+    );
+}
+
 .App-header {
-    background-color: #282c34;
+    height: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: white;
 }
 
@@ -12,4 +23,9 @@
     color: white;
     text-decoration: none;
     margin: 1em;
+}
+
+.App-main {
+    text-align: center;
+    height: 90vh;
 }

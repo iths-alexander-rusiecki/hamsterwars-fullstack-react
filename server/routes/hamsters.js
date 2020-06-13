@@ -19,7 +19,7 @@ router.get("/random", async (req, res) => {
             .where("id", "==", randomNumber)
             .get();
         randomHamster.forEach(doc => {
-            res.send({ randomHamster: doc.data() });
+            res.send([doc.data()]);
         });
     } catch (err) {
         console.error(err);

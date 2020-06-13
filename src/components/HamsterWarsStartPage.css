@@ -1,0 +1,15 @@
+img {
+    height: 3em;
+}
+
+.container {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pic-container {
+    display: flex;
+    flex-direction: column;
+}
