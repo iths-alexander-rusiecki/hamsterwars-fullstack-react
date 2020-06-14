@@ -23,7 +23,6 @@ const addCollectionToDatabase = collectionName => {
                     {
                         id: null,
                         name: "",
-                        imgName: "",
                         favFood: "",
                         loves: "",
                         imgName: "",
@@ -37,7 +36,6 @@ const addCollectionToDatabase = collectionName => {
                         imgName: "",
                         favFood: "",
                         loves: "",
-                        imgName: "",
                         wins: 0,
                         defeats: 0,
                         games: 0,

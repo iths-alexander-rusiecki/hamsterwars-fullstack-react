@@ -22,23 +22,23 @@ const DisplayRandomHamsters = () => {
     }, []);
 
     return (
-        <div>
+        <div className="hamster-container">
             {hamsterOne.map(hamster => (
-                <div key={hamster.id}>
-                    <h1>{hamster.name}</h1>
+                <div key={hamster.id} className="hamster">
                     <img
                         src={require(`../images/hamsters/${hamster.imgName}`)}
                         alt="hamster one"
                     />
+                    <h1>{hamster.name}</h1>
                 </div>
             ))}
             {hamsterTwo.map(hamster => (
-                <div key={hamster.id}>
-                    <h1>{hamster.name}</h1>
+                <div key={hamster.id} className="hamster">
                     <img
                         src={require(`../images/hamsters/${hamster.imgName}`)}
                         alt="hamster two"
                     />
+                    <h1>{hamster.name}</h1>
                 </div>
             ))}
         </div>

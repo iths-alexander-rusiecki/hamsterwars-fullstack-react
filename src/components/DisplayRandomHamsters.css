@@ -1,3 +1,13 @@
+.hamster-container {
+    display: flex;
+    justify-content: center;
+}
+
 img {
-    height: 15em;
+    height: 20em;
+    border-radius: 2em;
+}
+
+.hamster {
+    margin: 5em 2em;
 }
