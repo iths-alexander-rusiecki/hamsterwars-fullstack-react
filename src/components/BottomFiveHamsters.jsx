@@ -15,7 +15,7 @@ const BottomFiveHamsters = () => {
             <h1>Most defeats:</h1>
             {stats.map(hamster => (
                 <h3 key={hamster.id}>
-                    Name: {hamster.name} - Defeats: {hamster.defeats}
+                    {hamster.name}: {hamster.defeats} defeats
                 </h3>
             ))}
         </div>

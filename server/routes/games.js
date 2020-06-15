@@ -6,7 +6,7 @@ const router = new Router();
 const gamesRef = db.collection("games"); // DRY code
 const hamstersRef = db.collection("hamsters"); // DRY code
 
-router.post("/", async (req, res) => {
+router.post("/played", async (req, res) => {
     try {
         const snapShot = await gamesRef.get();
         snapShot.forEach(doc => {

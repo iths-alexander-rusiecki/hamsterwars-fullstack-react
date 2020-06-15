@@ -102,7 +102,7 @@ router.put("/:id/result", async (req, res) => {
 });
 
 // POST new hamster to database
-router.post("/", async (req, res) => {
+router.post("/newhamster", async (req, res) => {
     try {
         hamstersRef
             .doc(uuid.v4())

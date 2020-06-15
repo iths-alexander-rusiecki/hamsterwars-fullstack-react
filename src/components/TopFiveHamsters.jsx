@@ -12,10 +12,10 @@ const TopFiveHamsters = () => {
     }, []);
     return (
         <div>
-            <h1>Most wins:</h1>
+            <h1>Most wins: </h1>
             {stats.map(hamster => (
                 <h3 key={hamster.id}>
-                    Name: {hamster.name} - Wins: {hamster.wins}
+                    {hamster.name}: {hamster.wins} wins
                 </h3>
             ))}
         </div>

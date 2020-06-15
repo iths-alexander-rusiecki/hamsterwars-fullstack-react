@@ -4,15 +4,14 @@ import "./HamsterWarsStartPage.css";
 const HamsterWarsStartPage = () => {
     return (
         <div className="container">
-            <div className="pic-container">
+            <div className="info-container">
                 <img
-                    src={require("../images/happyhamster.svg")}
+                    src={require("../images/happyhamster.png")}
                     alt="happy hamster"
                 />
-                <h1>This is the start page</h1>
-                <h3>Start a hamster war!!</h3>
+                <h1>Start a hamster war by clicking battle!!</h1>
                 <img
-                    src={require("../images/sadhamster.svg")}
+                    src={require("../images/sadhamster.png")}
                     alt="happy hamster"
                 />
             </div>

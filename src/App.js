@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     NavLink,
-    Redirect,
 } from "react-router-dom";
 import HamsterWarsStartPage from "./components/HamsterWarsStartPage";
 import TopFiveHamsters from "./components/TopFiveHamsters";
 import BottomFiveHamsters from "./components/BottomFiveHamsters";
 import TotalAmountOfGames from "./components/TotalAmountOfGames";
 import DisplayRandomHamsters from "./components/DisplayRandomHamsters";
+import AddHamsterForm from "./components/AddHamsterForm";
 
 const App = () => {
     return (
@@ -20,12 +20,18 @@ const App = () => {
                 <header className="App-header">
                     <h1>HAMSTER WARS</h1>
                     <nav>
-                        <NavLink exact to="/">
+                        <NavLink exact to="/" activeClassName="active">
                             Start
                         </NavLink>
-                        <NavLink to="/battle">Battle</NavLink>
-                        <NavLink to="/stats">Stats</NavLink>
-                        <NavLink to="/upload">upload hamster pic</NavLink>
+                        <NavLink to="/battle" activeClassName="active">
+                            Battle
+                        </NavLink>
+                        <NavLink to="/stats" activeClassName="active">
+                            Stats
+                        </NavLink>
+                        <NavLink to="/upload" activeClassName="active">
+                            upload hamster
+                        </NavLink>
                     </nav>
                 </header>
                 <main className="App-main">
@@ -40,6 +46,9 @@ const App = () => {
                             <TopFiveHamsters />
                             <BottomFiveHamsters />
                             <TotalAmountOfGames />
+                        </Route>
+                        <Route path="/upload">
+                            <AddHamsterForm />
                         </Route>
                     </Switch>
                 </main>

@@ -13,9 +13,9 @@ const TotalAmountOfGames = () => {
     }, []);
     return (
         <div>
-            <h1>Total amout of games played:</h1>
+            <h1>Total games played:</h1>
             {stats.map(hamster => (
-                <h3 key={hamster}>{hamster}</h3>
+                <h1 key={hamster}>{hamster}</h1>
             ))}
         </div>
     );
