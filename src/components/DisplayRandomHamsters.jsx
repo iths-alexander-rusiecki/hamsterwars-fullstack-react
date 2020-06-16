@@ -8,6 +8,7 @@ const DisplayRandomHamsters = () => {
     const [hamsterOneScore, setHamsterOneScore] = useState(0);
     const [hamsterTwoScore, setHamsterTwoScore] = useState(0);
     const [isGamePlayed, setIsGamePlayed] = useState(false);
+    const [isWinner, setIsWinner] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,7 +40,7 @@ const DisplayRandomHamsters = () => {
 
     return (
         <div className="hamster-container ">
-            {/* {isGamePlayed ? (
+            {isGamePlayed ? (
                 <div>
                     <DisplayWinner
                         winningHamsterInfo={{
@@ -52,17 +53,32 @@ const DisplayRandomHamsters = () => {
                 </div>
             ) : (
                 <div>
-                    {hamsterOne.url}
-                    <img
-                        src={require(`../images/hamsters/${hamsterOne.imageName}`)}
-                        alt="hamster one"
-                    />
-                    <img
-                        src={require(`../images/hamsters/${hamsterTwo.imageName}`)}
-                        alt="hamster two"
-                    />
+                    <div
+                        onClick={() => {
+                            setIsGamePlayed(true);
+                            setHamsterOneScore(hamsterOneScore + 1);
+                            setIsWinner(true);
+                        }}
+                    >
+                        <img
+                            src={`./images/hamsters/${hamsterOne.imageName}`}
+                            alt="hamster one"
+                        />
+                    </div>
+                    <div
+                        onClick={() => {
+                            setIsGamePlayed(true);
+                            setHamsterTwoScore(hamsterOneScore + 1);
+                            setIsWinner(true);
+                        }}
+                    >
+                        <img
+                            src={`./images/hamsters/${hamsterTwo.imageName}`}
+                            alt="hamster two"
+                        />
+                    </div>
                 </div>
-            )} */}
+            )}
         </div>
     );
 };

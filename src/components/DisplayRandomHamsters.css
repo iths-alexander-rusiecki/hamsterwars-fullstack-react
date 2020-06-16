@@ -1,10 +1,12 @@
 .hamster-container {
+    height: 90vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .hamster-container img {
-    height: 30em;
+    height: 20em;
     border-radius: 2em;
 }
 
