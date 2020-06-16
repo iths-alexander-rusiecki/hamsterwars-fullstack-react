@@ -37,7 +37,7 @@ const AddHamsterForm = () => {
                 body,
                 redirect: "follow",
             };
-            await fetch("api/hamsters", requestOptions);
+            await fetch("/api/hamsters", requestOptions);
         } catch (err) {
             console.log(err);
         }
