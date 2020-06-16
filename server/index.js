@@ -11,6 +11,8 @@ app.use(cors());
 
 app.use(helmet());
 app.use(express.static(__dirname + "/../build"));
+// app.use(express.static("public"));
+
 app.use(express.json());
 
 doesCollectionExist("hamsters");

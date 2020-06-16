@@ -20,7 +20,7 @@ router.get("/random", async (req, res) => {
             .where("id", "==", randomNumber)
             .get();
         randomHamster.forEach(doc => {
-            res.send([doc.data()]);
+            res.send(doc.data());
         });
     } catch (err) {
         console.error(err);
@@ -102,7 +102,7 @@ router.put("/:id/result", async (req, res) => {
 });
 
 // POST new hamster to database
-router.post("/newhamster", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         hamstersRef
             .doc(uuid.v4())

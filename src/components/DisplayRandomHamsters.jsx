@@ -3,61 +3,66 @@ import "./DisplayRandomHamsters.css";
 import DisplayWinner from "./DisplayWinner";
 
 const DisplayRandomHamsters = () => {
-    const [hamsterOne, setHamsterOne] = useState([]);
-    const [hamsterTwo, setHamsterTwo] = useState([]);
+    const [hamsterOne, setHamsterOne] = useState({});
+    const [hamsterTwo, setHamsterTwo] = useState({});
     const [hamsterOneScore, setHamsterOneScore] = useState(0);
     const [hamsterTwoScore, setHamsterTwoScore] = useState(0);
-    const [gamesPlayed, setGamesPlayed] = useState(0);
+    const [isGamePlayed, setIsGamePlayed] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch("/api/hamsters/random");
             const json = await response.json();
-            setHamsterOne(json.map(hamster => hamster));
+            setHamsterOne({
+                name: json.name,
+                age: json.age,
+                favoriteFood: json.favFood,
+                imageName: json.imgName,
+            });
         };
         fetchData();
     }, []);
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch("/api/hamsters/random");
             const json = await response.json();
-            setHamsterTwo(json.map(hamster => hamster));
+            setHamsterTwo({
+                name: json.name,
+                age: json.age,
+                favoriteFood: json.favFood,
+                imageName: json.imgName,
+            });
         };
         fetchData();
     }, []);
 
     return (
         <div className="hamster-container ">
-            {hamsterOne.map(hamster => (
-                <div key={hamster.id} className="hamster">
+            {/* {isGamePlayed ? (
+                <div>
+                    <DisplayWinner
+                        winningHamsterInfo={{
+                            name: hamsterOne.name,
+                            age: hamsterOne.age,
+                            favoriteFood: hamsterOne.favoriteFood,
+                            imageName: hamsterOne.imgName,
+                        }}
+                    />
+                </div>
+            ) : (
+                <div>
+                    {hamsterOne.url}
                     <img
-                        src={require(`../images/hamsters/${hamster.imgName}`)}
+                        src={require(`../images/hamsters/${hamsterOne.imageName}`)}
                         alt="hamster one"
-                        onClick={() => {
-                            setHamsterOneScore(hamsterOneScore + 1);
-                            setGamesPlayed(gamesPlayed + 1);
-                        }}
                     />
-                    {hamsterOneScore > 0 && (
-                        <DisplayWinner winner={hamster.name} />
-                    )}
-                </div>
-            ))}
-            {hamsterTwo.map(hamster => (
-                <div key={hamster.id} className="hamster">
                     <img
-                        src={require(`../images/hamsters/${hamster.imgName}`)}
+                        src={require(`../images/hamsters/${hamsterTwo.imageName}`)}
                         alt="hamster two"
-                        onClick={() => {
-                            setHamsterTwoScore(hamsterTwoScore + 1);
-                            setGamesPlayed(gamesPlayed + 1);
-                        }}
                     />
-                    {hamsterTwoScore > 0 && (
-                        <DisplayWinner winner={hamster.name} />
-                    )}
                 </div>
-            ))}
+            )} */}
         </div>
     );
 };

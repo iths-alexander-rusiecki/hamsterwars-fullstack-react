@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import "./AddHamsterForm.css";
 
 const AddHamsterForm = () => {
@@ -14,20 +15,32 @@ const AddHamsterForm = () => {
     const stopSubmit = e => {
         e.preventDefault();
     };
-    const saveNewHamsterInfo = () => {
-        const newHamster = {
-            id,
-            name,
-            age,
-            favFood,
-            loves,
-            games,
-            wins,
-            defeats,
-            imgName,
-        };
-        console.log(newHamster);
-        return newHamster;
+    const newHamster = {
+        id,
+        name,
+        age,
+        favFood,
+        loves,
+        games,
+        wins,
+        defeats,
+        imgName,
+    };
+    const fetchData = async () => {
+        try {
+            const headers = new Headers();
+            headers.append("Content-Type", "application/json");
+            const body = JSON.stringify(newHamster);
+            const requestOptions = {
+                method: "POST",
+                headers,
+                body,
+                redirect: "follow",
+            };
+            await fetch("api/hamsters", requestOptions);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (
@@ -114,7 +127,7 @@ const AddHamsterForm = () => {
                     onChange={e => setImgName(e.target.value)}
                     value={imgName}
                 />
-                <button onClick={saveNewHamsterInfo}>Add hamster</button>
+                <button onClick={fetchData}>Add hamster</button>
             </form>
         </div>
     );
