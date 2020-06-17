@@ -1,7 +1,6 @@
 const { db } = require("./../firebase");
 const { Router } = require("express");
 const uuid = require("uuid"); // Creates good unique ID´s
-
 const converter = require("number-to-words"); // Just testing package for fun
 
 const router = new Router();

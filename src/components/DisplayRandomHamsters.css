@@ -4,6 +4,7 @@
     padding: 0 20em;
     color: white;
 }
+
 .winning-container {
     color: white;
 }
@@ -11,6 +12,7 @@
 .left {
     grid-column: 1;
 }
+
 .right {
     grid-column: 2;
 }

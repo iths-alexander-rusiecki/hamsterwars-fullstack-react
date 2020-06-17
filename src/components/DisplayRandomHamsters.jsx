@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./DisplayRandomHamsters.css";
 import DisplayWinner from "./DisplayWinner";
+import "./DisplayRandomHamsters.css";
 
 const DisplayRandomHamsters = () => {
     const [hamsterOne, setHamsterOne] = useState({});
@@ -49,12 +49,13 @@ const DisplayRandomHamsters = () => {
         }
     };
 
-    let gameStatsWins = {
+    const gameStatsWins = {
         games: 1,
         wins: 1,
         defeats: 0,
     };
-    let gameStatsDefeats = {
+
+    const gameStatsDefeats = {
         games: 1,
         wins: 0,
         defeats: 1,
@@ -66,12 +67,14 @@ const DisplayRandomHamsters = () => {
         setWinningHamsterId(hamsterOne.id.toString());
         setDefeatedHamsterId(hamsterTwo.id.toString());
     };
+
     const handleClickHamsterTwo = () => {
         setIsGamePlayed(true);
         setIsHamsterTwoWinner(true);
         setWinningHamsterId(hamsterTwo.id.toString());
         setDefeatedHamsterId(hamsterOne.id.toString());
     };
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch("/api/hamsters/random");
@@ -107,6 +110,7 @@ const DisplayRandomHamsters = () => {
             console.log(err);
         }
     };
+
     const updateStatsDefeats = async () => {
         try {
             const headers = new Headers();
@@ -131,6 +135,7 @@ const DisplayRandomHamsters = () => {
     useEffect(() => {
         updateStatsWins();
     }, [winningHamsterId]);
+
     useEffect(() => {
         updateStatsDefeats();
     }, [defeatedHamsterId]);

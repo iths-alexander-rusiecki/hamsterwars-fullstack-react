@@ -11,6 +11,7 @@ const TotalAmountOfGames = () => {
         };
         fetchData();
     }, []);
+
     return (
         <div>
             <h1>Total games played:</h1>

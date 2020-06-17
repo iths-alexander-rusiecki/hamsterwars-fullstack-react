@@ -10,6 +10,7 @@ const BottomFiveHamsters = () => {
         };
         fetchData();
     }, []);
+
     return (
         <div>
             <h1>Most defeats:</h1>

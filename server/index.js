@@ -1,17 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-
 const helmet = require("helmet"); // Easy way to secure, not bullet proof
 const doesCollectionExist = require("./doesCollectionExist");
 
 const serverPort = process.env.PORT || 4000;
 
 const app = express();
-app.use(cors());
 
+app.use(cors());
 app.use(helmet());
 app.use(express.static(__dirname + "/../build"));
-
 app.use(express.json());
 
 doesCollectionExist("hamsters");

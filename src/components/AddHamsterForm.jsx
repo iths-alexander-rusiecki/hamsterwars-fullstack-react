@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
 import "./AddHamsterForm.css";
 
 const AddHamsterForm = () => {
@@ -69,6 +68,7 @@ const AddHamsterForm = () => {
                     onBlur={() => setNameTouched(true)}
                 />
                 <div className="error">{nameError}</div>
+
                 <label htmlFor="age">Add Hamster age</label>
                 <input
                     className={ageClass}
@@ -79,6 +79,7 @@ const AddHamsterForm = () => {
                     onBlur={() => setAgeTouched(true)}
                 />
                 <div className="error">{ageError}</div>
+
                 <label htmlFor="favFood">Add Hamsters favourite food</label>
                 <input
                     className={favFoodClass}
@@ -89,6 +90,7 @@ const AddHamsterForm = () => {
                     onBlur={() => setFavFoodTouched(true)}
                 />
                 <div className="error">{favFoodError}</div>
+
                 <label htmlFor="loves">Add Hamsters hobby</label>
                 <input
                     className={lovesClass}
@@ -99,6 +101,7 @@ const AddHamsterForm = () => {
                     onBlur={() => setLovesTouched(true)}
                 />
                 <div className="error">{lovesError}</div>
+
                 <label htmlFor="imgName">Add Hamsters image name</label>
                 <input
                     className={imgNameClass}
@@ -122,6 +125,7 @@ const isValidName = name => {
         return ["invalid", "Please enter a valid name"];
     }
 };
+
 const isValidAge = age => {
     if (isNaN(age) || age !== "") {
         return ["valid", ""];
@@ -129,6 +133,7 @@ const isValidAge = age => {
         return ["invalid", "Please enter a valid age"];
     }
 };
+
 const isValidFavFood = favFood => {
     if (String(favFood) !== "") {
         return ["valid", ""];
@@ -136,6 +141,7 @@ const isValidFavFood = favFood => {
         return ["invalid", "Please enter a valid dish"];
     }
 };
+
 const isValidLoves = loves => {
     if (String(loves) !== "") {
         return ["valid", ""];
@@ -143,6 +149,7 @@ const isValidLoves = loves => {
         return ["invalid", "Please enter a valid hobby"];
     }
 };
+
 const isValidImgName = imgName => {
     if (String(imgName) !== "") {
         return ["valid", ""];
