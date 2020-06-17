@@ -125,15 +125,5 @@ router.post("/", async (req, res) => {
         console.error(err);
     }
 });
-// router.post("/", async (req, res) => {
-//     try {
-//         hamstersRef
-//             .doc(uuid.v4())
-//             .set(req.body)
-//             .then(res.send({ msg: `hamster ${req.body.id} added` }));
-//     } catch (err) {
-//         console.error(err);
-//     }
-// });
 
 module.exports = router;
