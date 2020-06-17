@@ -10,10 +10,7 @@ router.get("/:picUrl", (req, res) => {
         const picUrl = req.params.picUrl;
 
         // Start stream
-        // const src = fs.createReadStream(`./assets/hamsters/${picUrl}`);
-        const src = fs.createReadStream(
-            `../../public/images/hamsters/${picUrl}`
-        );
+        const src = fs.createReadStream(`../assets/hamsters/${picUrl}`);
 
         // Stream to response object
         src.pipe(res);

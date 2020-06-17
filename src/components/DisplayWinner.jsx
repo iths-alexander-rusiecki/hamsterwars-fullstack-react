@@ -11,7 +11,7 @@ const DisplayWinner = ({
                 alt="alt winning hamster"
             />
 
-            <h1>Name: {name}</h1>
+            <h1>{name}</h1>
             <h1> Age: {age}</h1>
             <h1>Favorite food: {favoriteFood}</h1>
         </div>
