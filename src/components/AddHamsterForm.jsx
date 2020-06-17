@@ -56,7 +56,7 @@ const AddHamsterForm = () => {
             <h1>Enter hamster info</h1>
             <form className="form-container" onSubmit={stopSubmit}>
                 <div className="left">
-                    <label htmlFor="id">Add Hamster id</label>
+                    {/* <label htmlFor="id">Add Hamster id</label>
                     <input
                         className={idClass}
                         type="text"
@@ -66,7 +66,7 @@ const AddHamsterForm = () => {
                         onBlur={() => setIdTouched(true)}
                         // value={id}
                     />
-                    <div className="error">{idError}</div>
+                    <div className="error">{idError}</div> */}
 
                     <label htmlFor="name">Add Hamster name</label>
                     <input
@@ -113,26 +113,26 @@ const AddHamsterForm = () => {
                     />
                     <div className="error">{lovesError}</div>
 
-                    <label htmlFor="games">Add Hamsters amount of games</label>
+                    {/* <label htmlFor="games">Add Hamsters amount of games</label>
                     <input
                         type="text"
                         id="games"
                         placeholder="amount of games"
                         onChange={e => setGames(games + e.target.value)}
                         // value={games}
-                    />
+                    /> */}
                 </div>
                 <div className="right">
-                    <label htmlFor="wins">Add Hamsters amount of wins</label>
+                    {/* <label htmlFor="wins">Add Hamsters amount of wins</label>
                     <input
                         type="text"
                         id="wins"
                         placeholder="amount of wins"
                         onChange={e => setWins(wins + e.target.value)}
                         // value={wins}
-                    />
+                    /> */}
 
-                    <label htmlFor="defeats">
+                    {/* <label htmlFor="defeats">
                         Add Hamsters amount of defeats
                     </label>
                     <input
@@ -141,7 +141,7 @@ const AddHamsterForm = () => {
                         placeholder="amount of defeats"
                         onChange={e => setDefeats(defeats + e.target.value)}
                         // value={defeats}
-                    />
+                    /> */}
 
                     <label htmlFor="imgName">Add Hamsters image name</label>
                     <input
@@ -159,7 +159,7 @@ const AddHamsterForm = () => {
 };
 
 const isValidId = id => {
-    if (Number(id) !== null) {
+    if (isNaN(id) || id !== "") {
         return ["valid", ""];
     } else {
         return ["invalid", "Please enter a valid id"];

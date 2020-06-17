@@ -104,13 +104,36 @@ router.put("/:id/result", async (req, res) => {
 // POST new hamster to database
 router.post("/", async (req, res) => {
     try {
+        const snapShot = await hamstersRef.get();
+        let data = {
+            id: snapShot._size + 1,
+            name: req.body.name,
+            imgName: req.body.imgName,
+            favFood: req.body.favFood,
+            loves: req.body.loves,
+            games: 0,
+            wins: 0,
+            defeats: 0,
+            age: req.body.age,
+        };
+
         hamstersRef
             .doc(uuid.v4())
-            .set(req.body)
-            .then(res.send({ msg: `hamster ${req.body.id} added` }));
+            .set(data)
+            .then(res.send({ msg: `Hamster ${data.id} added` }));
     } catch (err) {
         console.error(err);
     }
 });
+// router.post("/", async (req, res) => {
+//     try {
+//         hamstersRef
+//             .doc(uuid.v4())
+//             .set(req.body)
+//             .then(res.send({ msg: `hamster ${req.body.id} added` }));
+//     } catch (err) {
+//         console.error(err);
+//     }
+// });
 
 module.exports = router;

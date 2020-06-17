@@ -6,8 +6,9 @@ const TotalAmountOfGames = () => {
         const fetchData = async () => {
             const response = await fetch("api/stats/total");
             const json = await response.json();
+            console.log(json);
 
-            setStats(json.map(hamster => hamster));
+            setStats(json);
         };
         fetchData();
     }, []);

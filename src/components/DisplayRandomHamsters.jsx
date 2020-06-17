@@ -5,12 +5,11 @@ import DisplayWinner from "./DisplayWinner";
 const DisplayRandomHamsters = () => {
     const [hamsterOne, setHamsterOne] = useState({});
     const [hamsterTwo, setHamsterTwo] = useState({});
-    const [hamsterOneScore, setHamsterOneScore] = useState(0);
-    const [hamsterTwoScore, setHamsterTwoScore] = useState(0);
     const [isGamePlayed, setIsGamePlayed] = useState(false);
     const [isHamsterOneWinner, setIsHamsterOneWinner] = useState(false);
     const [isHamsterTwoWinner, setIsHamsterTwoWinner] = useState(false);
     const [winningHamsterId, setWinningHamsterId] = useState("");
+    const [defeatedHamsterId, setDefeatedHamsterId] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -50,16 +49,35 @@ const DisplayRandomHamsters = () => {
         }
     };
 
-    let gameStats = {
+    let gameStatsWins = {
         games: 1,
         wins: 1,
         defeats: 0,
     };
-    const updateStats = async () => {
+    let gameStatsDefeats = {
+        games: 1,
+        wins: 0,
+        defeats: 1,
+    };
+
+    const handleClickHamsterOne = () => {
+        setIsGamePlayed(true);
+        setIsHamsterOneWinner(true);
+        setWinningHamsterId(hamsterOne.id.toString());
+        setDefeatedHamsterId(hamsterTwo.id.toString());
+    };
+    const handleClickHamsterTwo = () => {
+        setIsGamePlayed(true);
+        setIsHamsterTwoWinner(true);
+        setWinningHamsterId(hamsterTwo.id.toString());
+        setDefeatedHamsterId(hamsterOne.id.toString());
+    };
+
+    const updateStatsWins = async () => {
         try {
             const headers = new Headers();
             headers.append("Content-Type", "application/json");
-            const body = JSON.stringify(gameStats);
+            const body = JSON.stringify(gameStatsWins);
             const requestOptions = {
                 method: "PUT",
                 headers,
@@ -75,6 +93,33 @@ const DisplayRandomHamsters = () => {
             console.log(err);
         }
     };
+    const updateStatsDefeats = async () => {
+        try {
+            const headers = new Headers();
+            headers.append("Content-Type", "application/json");
+            const body = JSON.stringify(gameStatsDefeats);
+            const requestOptions = {
+                method: "PUT",
+                headers,
+                body,
+                redirect: "follow",
+            };
+            await fetch(
+                `/api/hamsters/${defeatedHamsterId}/result`,
+                requestOptions
+            );
+            console.log("added game stats");
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        updateStatsWins();
+    }, [winningHamsterId]);
+    useEffect(() => {
+        updateStatsDefeats();
+    }, [defeatedHamsterId]);
 
     return (
         <div>
@@ -84,36 +129,16 @@ const DisplayRandomHamsters = () => {
                 </div>
             ) : (
                 <div className="hamster-container">
-                    <div
-                        className="left"
-                        onClick={() => {
-                            setIsGamePlayed(true);
-                            setHamsterOneScore(hamsterOneScore + 1);
-                            setIsHamsterOneWinner(true);
-                            setWinningHamsterId(hamsterOne.id.toString());
-                            updateStats();
-                            console.log(typeof winningHamsterId);
-                        }}
-                    >
+                    <div className="left" onClick={handleClickHamsterOne}>
                         <img
-                            src={`./images/hamsters/${hamsterOne.imageName}`}
+                            src={`/images/hamsters/${hamsterOne.imageName}`}
                             alt="hamster one"
                         />
                         <h1>{hamsterOne.name}</h1>
                     </div>
-                    <div
-                        className="right"
-                        onClick={() => {
-                            setIsGamePlayed(true);
-                            setHamsterTwoScore(hamsterTwoScore + 1);
-                            setIsHamsterTwoWinner(true);
-                            setWinningHamsterId(hamsterTwo.id.toString());
-                            updateStats();
-                            console.log(typeof winningHamsterId);
-                        }}
-                    >
+                    <div className="right" onClick={handleClickHamsterTwo}>
                         <img
-                            src={`./images/hamsters/${hamsterTwo.imageName}`}
+                            src={`/images/hamsters/${hamsterTwo.imageName}`}
                             alt="hamster two"
                         />
                         <h1>{hamsterTwo.name}</h1>
