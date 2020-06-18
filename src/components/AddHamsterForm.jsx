@@ -58,7 +58,7 @@ const AddHamsterForm = () => {
         <div className="add-hamster-container">
             <h2>Enter hamster info</h2>
             <form className="form-container" onSubmit={stopSubmit}>
-                <label htmlFor="name">Add Hamster name</label>
+                <label htmlFor="name">Add hamster name</label>
                 <input
                     className={nameClass}
                     type="text"
@@ -69,7 +69,7 @@ const AddHamsterForm = () => {
                 />
                 <div className="error">{nameError}</div>
 
-                <label htmlFor="age">Add Hamster age</label>
+                <label htmlFor="age">Add hamster age</label>
                 <input
                     className={ageClass}
                     type="text"
@@ -80,7 +80,7 @@ const AddHamsterForm = () => {
                 />
                 <div className="error">{ageError}</div>
 
-                <label htmlFor="favFood">Add Hamsters favourite food</label>
+                <label htmlFor="favFood">Add hamsters favourite food</label>
                 <input
                     className={favFoodClass}
                     type="text"
@@ -91,7 +91,7 @@ const AddHamsterForm = () => {
                 />
                 <div className="error">{favFoodError}</div>
 
-                <label htmlFor="loves">Add Hamsters hobby</label>
+                <label htmlFor="loves">Add hamsters hobby</label>
                 <input
                     className={lovesClass}
                     type="text"
@@ -102,7 +102,7 @@ const AddHamsterForm = () => {
                 />
                 <div className="error">{lovesError}</div>
 
-                <label htmlFor="imgName">Add Hamsters image name</label>
+                <label htmlFor="imgName">Add hamsters image name</label>
                 <input
                     className={imgNameClass}
                     type="text"
@@ -112,7 +112,18 @@ const AddHamsterForm = () => {
                     onBlur={() => setImgNameTouched(true)}
                 />
                 <div className="error">{imgNameError}</div>
-                <button onClick={fetchData}>save</button>
+                <button
+                    disabled={
+                        nameError ||
+                        ageError ||
+                        favFoodError ||
+                        lovesError ||
+                        imgNameError
+                    }
+                    onClick={fetchData}
+                >
+                    save
+                </button>
             </form>
         </div>
     );
