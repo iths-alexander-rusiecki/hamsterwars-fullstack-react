@@ -50,13 +50,11 @@ const DisplayRandomHamsters = () => {
     };
 
     const gameStatsWins = {
-        games: 1,
         wins: 1,
         defeats: 0,
     };
 
     const gameStatsDefeats = {
-        games: 1,
         wins: 0,
         defeats: 1,
     };

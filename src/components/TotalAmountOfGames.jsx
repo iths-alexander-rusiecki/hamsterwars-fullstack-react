@@ -14,7 +14,7 @@ const TotalAmountOfGames = () => {
     return (
         <div>
             <h1>Total games played:</h1>
-            <h1>{stats / 2}</h1>
+            <h1>{Math.floor(stats / 2)}</h1>
         </div>
     );
 };
