@@ -75,21 +75,6 @@ const DisplayRandomHamsters = () => {
         setDefeatedHamsterId(hamsterOne.id.toString());
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch("/api/hamsters/random");
-            const json = await response.json();
-            setHamsterOne({
-                id: json.id,
-                name: json.name,
-                age: json.age,
-                favoriteFood: json.favFood,
-                imageName: json.imgName,
-            });
-        };
-        fetchData();
-    }, []);
-
     const updateStatsWins = async () => {
         try {
             const headers = new Headers();
