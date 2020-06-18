@@ -12,6 +12,7 @@ const AddHamsterForm = () => {
     const [favFoodTouched, setFavFoodTouched] = useState(false);
     const [lovesTouched, setLovesTouched] = useState(false);
     const [imgNameTouched, setImgNameTouched] = useState(false);
+    const [isHamsterSaved, setIsHamsterSaved] = useState(false);
 
     const stopSubmit = e => {
         e.preventDefault();
@@ -112,6 +113,7 @@ const AddHamsterForm = () => {
                     onBlur={() => setImgNameTouched(true)}
                 />
                 <div className="error">{imgNameError}</div>
+
                 <button
                     disabled={
                         nameError ||
@@ -120,9 +122,12 @@ const AddHamsterForm = () => {
                         lovesError ||
                         imgNameError
                     }
-                    onClick={fetchData}
+                    onClick={() => {
+                        fetchData();
+                        setIsHamsterSaved(true);
+                    }}
                 >
-                    save
+                    {isHamsterSaved ? "hamster saved" : "save"}
                 </button>
             </form>
         </div>
