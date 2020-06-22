@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 
 const BottomFiveHamsters = () => {
     const [stats, setStats] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("/api/charts/bottom");
-            const json = await response.json();
-            setStats(json.map(hamster => hamster));
+            try {
+                const response = await fetch("/api/charts/bottom");
+                const json = await response.json();
+                setStats(json.map(hamster => hamster));
+            } catch (err) {
+                console.error(err);
+            }
         };
         fetchData();
     }, []);

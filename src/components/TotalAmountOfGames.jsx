@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 
 const TotalAmountOfGames = () => {
     const [stats, setStats] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("api/stats/total");
-            const json = await response.json();
-            setStats(json[0]);
+            try {
+                const response = await fetch("api/stats/total");
+                const json = await response.json();
+                setStats(json[0]);
+            } catch (err) {
+                console.error(err);
+            }
         };
         fetchData();
     }, []);

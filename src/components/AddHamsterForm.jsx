@@ -39,7 +39,7 @@ const AddHamsterForm = () => {
             };
             await fetch("/api/hamsters", requestOptions);
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
@@ -143,7 +143,7 @@ const isValidName = name => {
 };
 
 const isValidAge = age => {
-    if (isNaN(age) || age !== "") {
+    if (String(age) !== "") {
         return ["valid", ""];
     } else {
         return ["invalid", "Please enter a valid age"];

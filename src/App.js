@@ -7,10 +7,10 @@ import {
     NavLink,
 } from "react-router-dom";
 import HamsterWarsStartPage from "./components/HamsterWarsStartPage";
+import FetchRandomHamsters from "./components/FetchRandomHamsters";
 import TopFiveHamsters from "./components/TopFiveHamsters";
 import BottomFiveHamsters from "./components/BottomFiveHamsters";
 import TotalAmountOfGames from "./components/TotalAmountOfGames";
-import DisplayRandomHamsters from "./components/DisplayRandomHamsters";
 import AddHamsterForm from "./components/AddHamsterForm";
 
 const App = () => {
@@ -40,7 +40,7 @@ const App = () => {
                             <HamsterWarsStartPage />
                         </Route>
                         <Route path="/battle">
-                            <DisplayRandomHamsters />
+                            <FetchRandomHamsters />
                         </Route>
                         <Route path="/stats">
                             <TopFiveHamsters />

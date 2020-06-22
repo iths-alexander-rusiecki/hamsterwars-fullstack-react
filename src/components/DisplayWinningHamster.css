@@ -1,14 +1,11 @@
-.hamster-container {
-    display: grid;
+.winner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 10em;
     padding: 0 20em;
     color: white;
 }
-
-.winning-container {
-    color: white;
-}
-
 .left {
     grid-column: 1;
 }
@@ -21,8 +18,7 @@
     margin-top: 2em;
 }
 
-.hamster-container img,
-.winning-container img {
-    height: 20em;
+.winner-container img {
+    height: 10em;
     border-radius: 1em;
 }

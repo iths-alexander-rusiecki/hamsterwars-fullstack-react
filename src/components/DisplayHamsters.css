@@ -1,0 +1,16 @@
+.hamster-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10em;
+    padding: 0 20em;
+    color: white;
+}
+
+.hamster-container img {
+    height: 20em;
+}
+
+.hamster-container img {
+    height: 15em;
+    border-radius: 1em;
+}
